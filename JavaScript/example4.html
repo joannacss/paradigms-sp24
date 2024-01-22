@@ -1,0 +1,42 @@
+<!-- Demonstrates data types, and strings (double / single quotes vs backticks) -->
+<!DOCTYPE HTML>
+<html>
+	<head>
+
+	</head>
+	<body>
+		<script type="text/javascript">
+
+
+			
+
+
+			alert(typeof undefined) // "undefined"
+
+			alert(typeof 0) // "number"
+
+			alert(typeof 10n) // "bigint"
+
+			alert(typeof true) // "boolean"
+
+			alert(typeof "foo") // "string"
+
+			alert(typeof Symbol("id")) // "symbol"
+
+			alert(typeof Math) // "object"  (1)
+
+			alert(typeof null) // "object"  (2)
+
+			alert(typeof alert) // "function"  (3)
+
+
+
+
+
+			let name = "Mark";
+			alert(`Hello ${1}`); 		// ?
+			alert(`Hello ${"name"}`);	// ?
+			alert(`Hello ${name}`);		// ?
+		</script>
+	</body>
+</html>

@@ -1,38 +1,40 @@
-// Basic while loop
-let i = 0;
-let total = 0;
-while (i <= 20) {
-	total += i;
-	i+=2;
+const numbers = [1, 2, 3, 4, 5];
+
+// using for loop to iterate over the array
+for (var i = 0; i < numbers.length; i++) {
+  console.log(numbers[i]); // Output each element of the array
 }
-console.log(`The total is: ${total}`);
+
+// using while loop to iterate over the array
+var i = 0; // Initialize index outside the loop
+while (i < numbers.length) {
+  console.log(numbers[i]); // Output each element of the array
+  i++; // Increment index inside the loop
+}
+
+// using do...while loop to iterate over the array
+var i = 0; // Initialize index outside the loop
+do {
+  console.log(numbers[i]); // Output each element of the array
+  i++; // Increment index inside the loop
+} while (i < numbers.length);
+
+
 
 // Loop that utilizes falsey!
-i = 3;
-total = 0;
+var i = 3;
+var total = 0;
 while (i) {
 	total += i;
 	i-=1;
 }
 console.log(`The total is: ${total}`);
 
-// do while loop
-i = 0;
-total = 0
-do {
-	total+=i;
-	i++;
-} while (i <= 3);
-console.log(total);
 
-// for loop
-for (let i = 0; i <= 3; i++) { 
-  console.log(i);
-}
 
 // break out of loop
-let sum = 0;
-let target = 5;
+var sum = 0;
+var target = 5;
 while (true) {
   if (sum === target) break; // (*)
   sum++;
@@ -40,8 +42,8 @@ while (true) {
 console.log(`Sum: ${sum}`);
 
 // break/continue
-sum = 0;
-target = 6;
+var sum = 0;
+var target = 6;
 i = 0;
 let j=0; 
 for (; i <= 3; i++) {

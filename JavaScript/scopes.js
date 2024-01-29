@@ -2,9 +2,9 @@ let a1 = "Joanna"; // global
 function first() {
     a2 = "Cecilia"; // global
     var a4 = "da Silva";
-    if(a4 === "da Silva"){  // block-scope #1
+    if(true){  // block-scope #1
         const a5 = "Santos";
-        if(a2 === "Cecilia"){ // block-scope #2
+        if(true){ // block-scope #2
             const a6 = "a6";
             var a7 = "a7";
             console.log(a5);        

@@ -8,16 +8,14 @@ function sumArray(arr){
 	}
 	return total;
 }
-let arr = [1,2,3,4];
+let arr = [1,2,3,"4"];
 console.log(`${sumArray(arr)}`);
 
 
-// DEMO - PART2: FUNCTION EXPRESSIONS (var = function)
+// DEMO - PART2: FUNCTION EXPRESSIONS (variable = function() {})
 
 
 // DEMO - PART3: ARROW FUNCTIONS (...) => (expression)
-
-
 
 
 // DEMO - PART4: CALLBACK FUNCTIONS

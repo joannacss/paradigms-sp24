@@ -37,7 +37,6 @@ function sumArray2(arr){
 	}
 	return total;
 }	
-//let arr = [1,2,3,4];
 console.log(`F4: ${sumArray2(arr)}`);
 
 // Variable visibility
@@ -52,7 +51,6 @@ function sumArray3(arr){
 		total+= arr[i];
 	}
 }
-//let arr = [1,2,3,4];
 sumArray3(arr);
 //console.log(`F5: ${total}`); // ERROR HERE!!! So commenting out!
 

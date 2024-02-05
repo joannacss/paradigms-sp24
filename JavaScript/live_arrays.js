@@ -123,8 +123,8 @@ console.log(`DEMO6 (imperative): ${output6}`); // 80
 // DEMO6: combining filter, map, reduce!
 let callback6 = (x) => x%2 == 0;
 let firstOutput6 = array6.filter(callback6);
-let init = 0
-let callback6a = (sum,x) => sum + x*x, init;
-let outputDemo6 = /* TODO */;
+let init = 0;
+let callback6a = (sum,x) => sum = sum + x*x;
+let outputDemo6 = firstOutput6.reduce(callback6a,init);
 console.log(`DEMO6 (declarative): ${outputDemo6}`); // 80
 

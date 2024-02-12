@@ -15,26 +15,33 @@ function userFunction2(){
 	console.log(`userFunction2 ${nextOddNumber()}`)
 	console.log(`userFunction2 ${nextOddNumber()}`)
 }
+
 userFunction1()
 userFunction2()
 
 
 // DEMO: how to use closures to solve this problem?
-// let nextOddNumberGenerator = function (){
-// 	let innerCounter = 1;
-// 	return () => {
-// 		let output = innerCounter;
-// 		innerCounter += 2;
-// 		return output;
-// 	};
-// }
-// let f1 = nextOddNumberGenerator();
-// let f2 = nextOddNumberGenerator();
 
-// console.log(f1())
-// console.log(f1())
+let nextOddNumberGenerator = function(){
+	let innerCounter = 1;
+	return () => {
+		let output = innerCounter;
+		innerCounter = innerCounter + 2;
+		return output;
+	};
+}
 
-// console.log(f2())
 
+
+var generator1 = nextOddNumberGenerator();
+var generator2 = nextOddNumberGenerator();
+
+console.log(generator1());
+console.log(generator1());
+console.log(generator1());
+
+console.log(generator2());
+console.log(generator2());
+console.log(generator2());
 
 

@@ -13,5 +13,5 @@ class EvilCow(Vocalizer, Cow):
 
 if __name__ == '__main__':
     c = EvilCow('Bessie')
-    print(c.speak()) # what the output should be in here?
+    print(c.speak())  # what the output should be in here?
     print(EvilCow.mro())

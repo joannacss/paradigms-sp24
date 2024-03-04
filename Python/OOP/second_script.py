@@ -1,4 +1,4 @@
-import first_script
+from first_script import add
 
 print('Hello from second_script.py')
 print("__name__ in second_script.py=", __name__)

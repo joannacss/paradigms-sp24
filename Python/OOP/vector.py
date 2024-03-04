@@ -8,8 +8,8 @@ class Vector:
     def magnitude(self):
         return math.sqrt(self.x * self.x + self.y * self.y)
 
-    def __add__(self, v):
-        return Vector(self.x + v.x, self.y + v.y)
+    # def __add__(self, v):
+    #     return Vector(self.x + v.x, self.y + v.y)
 
     def __mul__(self, v):
         return self.x * v.x + self.y * v.y

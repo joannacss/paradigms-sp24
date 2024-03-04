@@ -1,5 +1,5 @@
 class Student:
-	name = "Default"
+	name = "Default" # static attribute
 
 	# default constructor
 	def __init__(self):

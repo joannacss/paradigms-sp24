@@ -40,9 +40,10 @@ class JsonDocument(Document):
 
 london = Location(51.507351, -0.127758)
 chicago = Location(41.878113, -87.629799)
+south_bend = Location(1.676388, -86.250275)
 
 csv_doc = CsvDocument("coordinates.csv")
-csv_doc.save([london, chicago])
+csv_doc.save([london, chicago, south_bend])
 
 json_doc = JsonDocument("coordinates.json")
-json_doc.save([london, chicago])
+json_doc.save([london, chicago, south_bend])

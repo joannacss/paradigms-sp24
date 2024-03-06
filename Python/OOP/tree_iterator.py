@@ -20,6 +20,8 @@ class BinaryTree:
             def _insert_in_order(current_node, current_value):
                 if current_node.left is None:
                     current_node.left = Node(current_value)
+                elif current_node.right is None:
+                    current_node.right = Node(current_value)
                 else:
                     _insert_in_order(current_node.left, current_value)
 

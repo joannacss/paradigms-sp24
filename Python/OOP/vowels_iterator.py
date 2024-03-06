@@ -12,7 +12,7 @@ class vowels:
         while self.i < len(self.word):
             i = self.i
             self.i += 1
-            if self.word[i] in ['a','e','i','o','u']:
+            if self.word[i].lower() in ['a','e','i','o','u']:
                 return self.word[i]
         else:
             raise StopIteration() # stops iteration

@@ -28,10 +28,10 @@ class ConfusedCat(Vocalizer, Animal):
 
 
 if __name__ == '__main__':
-    # c = EvilCow('Bessie')
-    # print(c.speak())  # conflict: what the output should be in here?
-    # print(EvilCow.mro())
+    c = EvilCow('Bessie')
+    print(c.speak())  # conflict: what the output should be in here?
+    print(EvilCow.mro())
 
-    cat = ConfusedCat("Kratos")
-    print(cat.speak()) # conflict: what the output should be in here?
-    print(ConfusedCat.mro())
+    # cat = ConfusedCat("Kratos")
+    # print(cat.speak()) # conflict: what the output should be in here?
+    # print(ConfusedCat.mro())

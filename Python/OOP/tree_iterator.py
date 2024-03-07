@@ -39,7 +39,6 @@ class BinaryTree:
 
 class BFSIterator:
     def __init__(self, tree):
-        self.visited = set()
         self.to_visit = [tree.root]
 
     def __iter__(self):  # creates the iterable object
@@ -49,7 +48,6 @@ class BFSIterator:
         # checks whether there are nodes left to visit
         if self.to_visit:
             node = self.to_visit.pop(0)
-            self.visited.add(node)
             if node.left:
                 self.to_visit.append(node.left)
             if node.right:
@@ -68,5 +66,5 @@ if __name__ == '__main__':
     tree.add("C")
     tree.add("D")
     tree.add("E")
-    for n in tree:
+    for n in BFSIterator(tree):
         print(n)

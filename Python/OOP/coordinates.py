@@ -34,16 +34,13 @@ class JsonDocument(Document):
     def save(self, coordinates):
         as_dict = [{"latitute": x.latitute, "longitude": x.longitude} for x in coordinates]
         json_object = json.dumps(as_dict, indent=4)
-        with open(self.filepath, "w") as csv_file:
-            csv_file.write(json_object)
+        with open(self.filepath, "w") as json_file:
+            json_file.write(json_object)
 
 
 london = Location(51.507351, -0.127758)
 chicago = Location(41.878113, -87.629799)
 south_bend = Location(1.676388, -86.250275)
 
-csv_doc = CsvDocument("coordinates.csv")
-csv_doc.save([london, chicago, south_bend])
-
-json_doc = JsonDocument("coordinates.json")
-json_doc.save([london, chicago, south_bend])
+d = Document("document.txt")
+d.save([london, chicago, south_bend])

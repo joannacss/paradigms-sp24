@@ -16,6 +16,9 @@ class vowels:
                 return self.word[i]
         else:
             raise StopIteration() # stops iteration
+
+
+
 if __name__ == '__main__':
     for v in vowels('Jane'):
         print(v)

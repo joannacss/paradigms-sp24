@@ -34,9 +34,9 @@ Describe here the list of steps to get your project running. For example:
    ```sh
    git clone https://github.com/github_username/repo_name.git
    ```
-3. Install NPM packages
+3. Install libraries
    ```sh
-   npm install
+   pip install -r requirements.txt
    ```
 4. Enter your API in `config.js`
    ```js

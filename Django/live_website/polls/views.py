@@ -11,8 +11,15 @@ def index(request):
     return render(request, "index.html", context)
 
 
-class ViewQuestions(ListView):
-    model = Question
+class IndexView(ListView):
+    template_name = 'polls/list_questions.html'
+    context_object_name = 'latest_questions'
+
     def get_queryset(self):
-        #  a list of all questions
+        """TODO: Return the last five published questions."""
+        # Implementation below returns *all* questions
         return Question.objects.all()
+
+
+
+

@@ -18,11 +18,9 @@ class IndexView(ListView):
     context_object_name = 'latest_questions'
 
     def get_queryset(self):
-        """TODO: Return the last five published questions."""
-        # Implementation below returns *all* questions
-        return Question.objects.all()
-        # return Question.objects.order_by('-pub_date')[:5]
-
+        """Return the last five published questions."""
+        return Question.objects.order_by('-pub_date')[:5]
+        # return Question.objects.all() # This returns all questions in the database
 
 
 class QuestionView(DetailView):

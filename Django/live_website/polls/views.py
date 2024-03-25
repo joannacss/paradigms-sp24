@@ -44,3 +44,8 @@ def vote(request, pk):
         selected_choice.save()
         return HttpResponseRedirect("/polls")
 
+
+
+class ResultsView(DetailView):
+    model = Question
+    template_name = "polls/results.html"

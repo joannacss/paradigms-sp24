@@ -2,7 +2,8 @@ from requests.auth import HTTPBasicAuth
 import requests
 import csv
 
-URL = "http://localhost:8000/"
+
+URL = "http://jcssdev.pythonanywhere.com/"
 
 
 

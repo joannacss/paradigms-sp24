@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-r!_l%+c=(h&%ig%y0+jf-nodkdr4)(k9wn!p63^9flk-0ph6f-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['jdasilv2.pythonanywhere.com','localhost', '127.0.0.1','129.74.152.125'] # NOTICE: changed for the live demos
+ALLOWED_HOSTS = ['jdasilv2.pythonanywhere.com','jcssdev.pythonanywhere.com','localhost', '127.0.0.1','129.74.152.125'] # NOTICE: changed for the live demos
 
 
 # Application definition

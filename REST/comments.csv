@@ -1,4 +1,3 @@
-id,package,status,summary
 1,http://jcssdev.pythonanywhere.com/bugs/43814/,bjori@php.net,Errr. I mean on the gcov.php.net site :)
 2,http://jcssdev.pythonanywhere.com/bugs/43814/,philip@php.net,"I'm unsure if this problem still exists because PECL extensions moved to core are 
 [usually] no longer maintained in PECL, and GCOV only tests core. What do you 

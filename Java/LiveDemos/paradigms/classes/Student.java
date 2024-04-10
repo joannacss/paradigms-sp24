@@ -5,9 +5,20 @@ public class Student{
 	private String [] grades;
 	private String name;
 
+	// default constructor (receives no parameters)
+	public Student(){
+
+	}
+
+	//parameterized constructor
+	public Student(String name, String [] grages){
+		this.grades = grades;
+		this.name = name;
+	}
 
 	// declare an instance method
 	public float computeGPA(){
+		// another alternative syntax for this `for` loop
 		// for(int i = 0; i < grades.length ; i++){
 		// 	String grade = grades[i];		s.computeGPA();
 
@@ -32,9 +43,19 @@ public class Student{
 
 		return gpa / grades.length;
 	}
-	// we declare getter/ setter
 
+	// we declare getter/ setter methods in here to update/read the attributes
+	public String [] getGrades(){
+		return this.grades;
+	}
 	public void setGrades(String [] grades){
 		this.grades = grades;
 	}
+	public String getName(){
+		return this.name;
+	}
+	public void setName(String name){
+		this.name = name;
+	}
+
 }

@@ -3,7 +3,7 @@ public class Student{
 
 	// attributes: they are private??
 	private String [] grades;
-	private String name;
+	protected String name;
 
 	// default constructor (receives no parameters)
 	public Student(){
@@ -11,7 +11,7 @@ public class Student{
 	}
 
 	//parameterized constructor
-	public Student(String name, String [] grages){
+	public Student(String name, String [] grades){
 		this.grades = grades;
 		this.name = name;
 	}

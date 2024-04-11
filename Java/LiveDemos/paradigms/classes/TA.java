@@ -7,6 +7,7 @@ public class TA extends Student{
   public TA(String name, String [] grades, String courseSection){
     super(name, grades);
     this.courseSection = courseSection;    
+    this.name = "PAradigms";
   }
 
   public String getCourseSection(){

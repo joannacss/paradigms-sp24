@@ -9,5 +9,6 @@ public class PointApp{
       System.out.println(p1.equals(p2));// true
       System.out.println(p2.equals(p3));// false
       System.out.println(p3.equals(null));// false
+      System.out.println(p1.hashCode());// returns an integer number (e.g: 994)
    }
 }

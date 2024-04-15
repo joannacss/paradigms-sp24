@@ -1,3 +1,4 @@
+import java.util.Objects;
 public class Point {
     private int x;
     private int y;
@@ -24,13 +25,7 @@ public class Point {
 
     @Override
     public int hashCode(){
-        int varCodeX = x;
-        int varCodeY = y;
-        // inits hash with the var code for one of the fields
-        int hash = varCodeX;
-        //  hash = <prime number> * hash + var_code;
-        hash = 41 * hash + varCodeY;
-        return hash;
+        return Objects.hash(x, y);
     }
 
     @Override

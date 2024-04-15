@@ -7,4 +7,10 @@ public class Triangle extends OrthogonalShape{
 	public double calculateArea() {
 		return (this.base * this.height)/2;
 	}
+
+	
+	@Override
+	public String toString(){
+		return "Here I am"; 
+	}
 }

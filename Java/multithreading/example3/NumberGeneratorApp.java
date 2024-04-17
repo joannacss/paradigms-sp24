@@ -10,7 +10,7 @@ import java.util.Random;
  * Example that showcases the use of the word synchronized
  */ 
 public class NumberGeneratorApp {
-    private static ArrayBuffer sharedBuffer;
+
 
     public static void main(String[] args) {
         // construct the shared object

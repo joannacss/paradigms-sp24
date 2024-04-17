@@ -11,7 +11,13 @@ public class PrintTaskApp {
        t3.start();
        
        // TODO: make it wait for the threads to finish.
-       
+       try {
+         t1.join();
+         t2.join();
+         t3.join();
+       }catch(InterruptedException ex){
+         System.out.println("Oh well!");
+       }
        System.out.println("print in main");
        
    }

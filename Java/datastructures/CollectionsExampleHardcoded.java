@@ -1,8 +1,6 @@
 package datastructures;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class CollectionsExampleHardcoded{
 
@@ -17,7 +15,7 @@ public class CollectionsExampleHardcoded{
 		cars.add("Corolla");
 
 		// Example 2:
-		HashSet<String> set = new HashSet<>();
+		Set<String> set = new HashSet<>();
 		
 		set.add("A");
 		set.add("X");

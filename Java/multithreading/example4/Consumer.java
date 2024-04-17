@@ -1,44 +1,22 @@
 package multithreading.example4;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.concurrent.BlockingQueue;
 
-public class Consumer implements Runnable {
-    private BlockingQueue<File> queue;
-    private Boolean isFinished;
+public class Consumer implements Runnable{
+    private BlockingQueue<Integer> queue;
 
-    public Consumer(BlockingQueue<File> queue, Boolean isFinished) {
+    public Consumer(BlockingQueue<Integer> queue) {
         this.queue = queue;
-        this.isFinished = isFinished;
-    }
-
-    private static int countLines(String filePath) throws IOException {
-        int count = 0;
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            while (reader.readLine() != null) {
-                count++;
-            }
-        }
-        return count;
     }
 
     public void run() {
-        try {
-            while (!this.isFinished) {
-                File pyFile = queue.take();
-                int numLines = countLines(pyFile.getAbsolutePath());
-                System.out.printf("Consumer %s processed %s\n" +
-                                "\tNumber lines = %d\n" +
-                                "\tCurrent queue size = %d\n",
-                        Thread.currentThread().getName(),
-                        pyFile,
-                        numLines,
-                        queue.size());
+        try{
+            while (true) {
+                int val = queue.take();
+                System.out.printf("Consumer %s consumed-%d. Current size = %d\n", Thread.currentThread().getName(), val, queue.size());
+                Thread.sleep(1000);
             }
-        } catch (InterruptedException | IOException ex) {
+        }catch(InterruptedException ex){
             System.err.println(ex.getMessage());
         }
     }

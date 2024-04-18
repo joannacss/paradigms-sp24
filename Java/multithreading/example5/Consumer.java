@@ -5,14 +5,20 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Consumer implements Runnable {
     private BlockingQueue<File> queue;
-    private Boolean isFinished;
+    private AtomicInteger numProcessedFiles;
+    private AtomicInteger totalFiles;
+    private AtomicInteger numLines;
 
-    public Consumer(BlockingQueue<File> queue, Boolean isFinished) {
+
+    public Consumer(BlockingQueue<File> queue, AtomicInteger numProcessedFiles, AtomicInteger totalFiles,AtomicInteger numLines) {
         this.queue = queue;
-        this.isFinished = isFinished;
+        this.numProcessedFiles = numProcessedFiles;
+        this.totalFiles = totalFiles;
+        this.numLines = numLines;
     }
 
     private static int countLines(String filePath) throws IOException {
@@ -27,18 +33,26 @@ public class Consumer implements Runnable {
 
     public void run() {
         try {
-            while (!this.isFinished || !queue.isEmpty()) {
-                File pyFile = queue.take();
-                int numLines = countLines(pyFile.getAbsolutePath());
-                System.out.printf("Consumer %s processed %s\n" +
+            while (true) {
+
+                File pyFile = queue.poll();
+                if (pyFile == null) {
+                    continue;
+                }
+                int totalLines = countLines(pyFile.getAbsolutePath());
+                this.numLines.addAndGet(totalLines);
+                System.out.printf("CONSUMER %s processed %s\n" +
                                 "\tNumber lines = %d\n" +
                                 "\tCurrent queue size = %d\n",
                         Thread.currentThread().getName(),
                         pyFile,
                         numLines,
                         queue.size());
+                int count = this.numProcessedFiles.incrementAndGet();
+                if (count == this.totalFiles.get())
+                    break;
             }
-        } catch (InterruptedException | IOException ex) {
+        } catch (IOException ex) {
             System.err.println(ex.getMessage());
         }
     }

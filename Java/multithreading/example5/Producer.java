@@ -10,9 +10,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Producer implements Runnable {
 
-    private BlockingQueue<File> queue;      // shared data structure among producer/consumer threads
-    private File folder;                    // folder to recursively search for files
-    private AtomicInteger totalFiles;    // number of files found
+    private BlockingQueue<File> queue;  // shared data structure among producer/consumer threads
+    private File folder;                // folder to recursively search for files
+    private AtomicInteger totalFiles;   // number of files found
 
     public Producer(BlockingQueue<File> queue, File folder, AtomicInteger totalFiles) {
         this.queue = queue;

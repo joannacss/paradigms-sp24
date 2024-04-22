@@ -46,7 +46,7 @@ public class Consumer implements Runnable {
                                 "\tCurrent queue size = %d\n",
                         Thread.currentThread().getName(),
                         pyFile,
-                        numLines,
+                        numLines.get(),
                         queue.size());
                 int count = this.numProcessedFiles.incrementAndGet();
                 if (count == this.totalFiles.get())

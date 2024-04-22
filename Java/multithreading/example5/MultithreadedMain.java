@@ -5,10 +5,10 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
-public class Main {
+public class MultithreadedMain {
     public static void main(String[] args) throws InterruptedException {
         File directory = new File("/Users/joanna/Documents/Portfolio/GitHub/joannacss/paradigms-sp24/");
-        // shared data structure (blocking queue. size = 10)
+        // shared data structure (blocking queue)
         BlockingQueue<File> bq = new LinkedBlockingQueue<>();
         AtomicInteger totalFiles = new AtomicInteger(0);
         AtomicInteger numProcessedFiles = new AtomicInteger(0);

@@ -30,7 +30,7 @@ public class Producer implements Runnable {
                         try {
                             this.queue.put(file.toFile());
                             this.totalFiles.incrementAndGet();
-                            System.out.printf("PRODUCER found file=%s\n", file);
+//                            System.out.printf("PRODUCER found file=%s\n", file);
                         } catch (InterruptedException e) {
                             System.out.println("Error while adding to queue: " + e.getMessage());
                         }

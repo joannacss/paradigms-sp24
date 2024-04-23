@@ -4,7 +4,7 @@
 ; hardcodes the file path to the CSV
 (def filepath "./data/city_temperatures2.csv")
 
-; parse into rows using str/split
+; parse into rows using slup and str/split by new lines #"\n"
 (def rows (str/split (slurp filepath) #"\n"))
 
 ; discard header using the `rest` function
@@ -12,53 +12,40 @@
 
 
 ; parse each row and return a map that is like this:
-; {"Honolulu" (list of temps) "Los Angeles" '(list of temps) "Angela" '(list of temps)}
-(defn parse-row [row temps_map]
+; {"Honolulu" (temp) "Los Angeles" '(list of temps) "South Bend" '(list of temps)}
+(defn parse-row [row]
   (let [column (clojure.string/split row #",")
   						city (get column 0)
   						temperature (Float/parseFloat (get column 1))
   					]
-  					(assoc temps_map city (conj (get temps_map city '()) temperature))
+  					{city (list temperature)}  					
   	)
 )
-
-;;;;; DEBUG ;;;;;
-; (def row0 (first rows))
-; (println (parse-row row0 {}))
-
-
-
-; (def mapped_rows (map (fn [r] (parse-row r {})) rows))
+; map from a list of rows to {Los Angeles (70.5), Honolulu (80.3), South Bend (55.8 54.5)}
+(def mapped_rows (map parse-row rows))
 ; (println mapped_rows)
-; (def mapped_row0 (first mapped_rows))
-; (println (get (first {"Los Angeles" '(70.5)}))
-; (defn city_reducer [e1 e2] 
-; 				(let )
-; )
-; (reduce my-reducer mapped_rows)
-
-(def entry {"Los Angeles" (70.5)})
-(val entry)
 
 
 
-; (def data '({"Los Angeles" (70.5)} {"Honolulu" (80.3)} {"South Bend" (55.8)} {"Los Angeles" (71.2)} {"Honolulu" (81.0)} {"South Bend" (54.5)}))
+(defn map-merger [x y] (concat (or  x '()) y))
 
-; (defn merge-temps [temp1 temp2]
-;   (conj temp1 (second temp2)))
 
-; (defn merge-city-temps [maps]
-;   (reduce (fn [acc-map curr-map]
-;             (reduce (fn [acc-city-map [city temp]]
-;                       (update acc-city-map city merge-temps temp))
-;                     acc-map
-;                     curr-map))
-;           {}
-;           maps))
+(defn city-reducer [e1 e2]
+			(let [e2_city (key (first e2))
+									e2_temp (val (first e2))] 
+									(update e1 e2_city map-merger e2_temp)
+			)
+)
 
-; (println (merge-city-temps data))
+; Creates a map that looks like this:
+; {Los Angeles (70.5 71.2), Honolulu (80.3 81.0), South Bend (55.8 54.5)}
+(def temperatures_map (reduce city-reducer mapped_rows))
+(defn avg [p] (double (/ (reduce + p)  (count p))))
+(println temperatures_map)
 
-;;;;;;;;;;;;;;;
-; (println (map (fn [r] (parse-row r {})) rows))
-; (defn my-reducer [r1 r2] (parse-row r1 {}))
-; (println (reduce my-reducer )
+(println "Statistics temperatures per city")
+(println 		(for [[city temperatures] temperatures_map]
+					 {city 
+					 		{"min" (apply min temperatures) "max" (apply max temperatures) "avg" (avg temperatures)}
+						} ))
+

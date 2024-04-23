@@ -7,7 +7,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class MultithreadedMain {
     public static void main(String[] args) throws InterruptedException {
-        File directory = new File("/Users/joanna/Documents/Portfolio/GitHub/joannacss/paradigms-sp24/");
+        long startTime = System.currentTimeMillis();
+        File directory = new File("/Users/joanna/Documents/Portfolio/GitHub/joannacss/");
         // shared data structure (blocking queue)
         BlockingQueue<File> bq = new LinkedBlockingQueue<>();
         AtomicInteger totalFiles = new AtomicInteger(0);
@@ -28,6 +29,8 @@ public class MultithreadedMain {
         System.out.println("Main finished");
         System.out.println("\tTotal files found: " + totalFiles.get());
         System.out.println("\tTotal number of lines: " + numLines.get());
+        long endTime = System.currentTimeMillis();
+        System.out.println("Time taken: " + (endTime - startTime) + " ms");
     }
 }
 

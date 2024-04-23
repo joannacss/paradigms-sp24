@@ -22,7 +22,8 @@ public class SequentialMain {
     }
 
     public static void main(String[] args) {
-        File folder = new File("/Users/joanna/Documents/Portfolio/GitHub/joannacss/paradigms-sp24/");
+        long startTime = System.currentTimeMillis();
+        File folder = new File("/Users/joanna/Documents/Portfolio/GitHub/joannacss/");
         AtomicInteger totalLines = new AtomicInteger();
         AtomicInteger totalFiles = new AtomicInteger();
         Path p = Paths.get(folder.getAbsolutePath());
@@ -43,5 +44,7 @@ public class SequentialMain {
         }
         System.out.println("Total files = " + totalFiles);
         System.out.println("Total lines = " + totalLines);
+        long endTime = System.currentTimeMillis();
+        System.out.println("Time taken: " + (endTime - startTime) + " ms");
     }
 }

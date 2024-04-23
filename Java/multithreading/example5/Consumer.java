@@ -41,17 +41,17 @@ public class Consumer implements Runnable {
                     this.numLines.addAndGet(totalLines);
                     int count = this.numProcessedFiles.incrementAndGet();
 
-                    System.out.printf("CONSUMER %s processed %s\n" +
-                                    "\t# lines = %d\n" +
-                                    "\tCurrent queue size = %d\n" +
-                                    "\t # Processed files = %d\n" +
-                                    "\t # Remaining files to process = %d\n",
-                            Thread.currentThread().getName(),
-                            pyFile,
-                            numLines.get(),
-                            queue.size(),
-                            count,
-                            this.totalFiles.get());
+//                    System.out.printf("CONSUMER %s processed %s\n" +
+//                                    "\t# lines = %d\n" +
+//                                    "\tCurrent queue size = %d\n" +
+//                                    "\t # Processed files = %d\n" +
+//                                    "\t # Remaining files to process = %d\n",
+//                            Thread.currentThread().getName(),
+//                            pyFile,
+//                            numLines.get(),
+//                            queue.size(),
+//                            count,
+//                            this.totalFiles.get());
 
                     if (count == this.totalFiles.get() && queue.isEmpty())
                         break;

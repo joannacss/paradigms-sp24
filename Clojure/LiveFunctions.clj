@@ -11,9 +11,9 @@
 (defn greet [name] (str "Hello, " name))
 
 ; invokes the function which returns a value (assign to x)
-(println (greet "students"))
+(def x (greet "students"))
 ; prints the returned value
-
+(println x)
 
 ;; --------------------------------------------------------
 ;; EXAMPLE 2: MULTI-ARITY FUNCTION
@@ -57,11 +57,9 @@
 (println dist2)
 (println (> dist1 dist2))
 
-; distance(p1[0], p1[1])
+; expression below is equivalent of doing `distance(p1[0], p1[1])` in Python
 (println (distance (get p1 0) (get p1 1)))
 
-
-
-
-; without using apply, this is how you'd invoke distance over the vectors p1, and p2
+; notice that without using apply, this is how you'd invoke distance over the vectors p1, and p2
 ; (def dist1 (distance (get p1 0) (get p1 1)))
+; code is much more verbose.

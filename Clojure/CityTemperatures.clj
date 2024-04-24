@@ -2,7 +2,7 @@
 
 
 ; hardcodes the file path to the CSV
-(def filepath "./data/city_temperatures2.csv")
+(def filepath "./data/city_temperatures.csv")
 
 ; parse into rows using slup and str/split by new lines #"\n"
 (def rows (str/split (slurp filepath) #"\n"))
@@ -11,22 +11,24 @@
 (def rows (rest rows))
 
 
-; parse each row and return a map that is like this:
-; {"Honolulu" (temp) "Los Angeles" '(list of temps) "South Bend" '(list of temps)}
+; parse one row and return a map that is like this:
+; {"city" (temperature)}
 (defn parse-row [row]
-  (let [column (clojure.string/split row #",")
+  (let [column (str/split row #",")
   						city (get column 0)
   						temperature (Float/parseFloat (get column 1))
   					]
   					{city (list temperature)}  					
   	)
 )
-; map from a list of rows to {Los Angeles (70.5), Honolulu (80.3), South Bend (55.8 54.5)}
+; map from a list of rows to {Los Angeles (70.5), Honolulu (80.3), South Bend (55.8), ...}
 (def mapped_rows (map parse-row rows))
-; (println mapped_rows)
 
 
 
+; use the reduce function to merge temperatures by city
+; goal is to create a map that looks like this:
+; {Los Angeles (70.5 71.2), Honolulu (80.3 81.0), South Bend (55.8 54.5)}
 (defn map-merger [x y] (concat (or  x '()) y))
 
 
@@ -37,12 +39,14 @@
 			)
 )
 
-; Creates a map that looks like this:
-; {Los Angeles (70.5 71.2), Honolulu (80.3 81.0), South Bend (55.8 54.5)}
 (def temperatures_map (reduce city-reducer mapped_rows))
-(defn avg [p] (double (/ (reduce + p)  (count p))))
-(println temperatures_map)
 
+
+; Average function
+(defn avg [p] (double (/ (reduce + p)  (count p))))
+
+
+; Use `for` to compute the statistics per city
 (println "Statistics temperatures per city")
 (println 		(for [[city temperatures] temperatures_map]
 					 {city 

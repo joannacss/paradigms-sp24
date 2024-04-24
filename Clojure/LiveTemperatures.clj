@@ -1,8 +1,16 @@
-(def temperatures [69 73 69 68 70 71 68 72 67 71 71 64 65 71 66 71 70 76 73 67 66 71 72 71 63 71 71 75 71 72])
-;; TODO: print min
-(println (apply min temperatures))
-;; TODO: print max
-(println (apply max temperatures))
-;; TODO: print average
-(defn avg [array] (double (/ (reduce + array) (count array))))
-(println (avg temperatures))
+; hardcodes the file path to the CSV
+(def filepath "./data/temperatures.csv")
+
+; parse into rows using slup and str/split by new lines #"\n"
+
+; discard header using the `rest` function
+
+; use `map` to make it a collection of floating point numbers
+
+; define `avg` function that computes the average
+
+
+; print metrics
+; (println "min = " (apply min rows))
+; (println "max = " (apply max rows))
+; (println "average = " (avg rows))

@@ -39,10 +39,13 @@
 (defn avg [p] (double (/ (reduce + p)  (count p))))
 
 
-; Use `for` to compute the statistics per city
+; Use `doseq` to compute the statistics per city
 (println "Statistics temperatures per city")
-(println 		(for [[city temperatures] temperatures_map]
-					 {city 
-					 		{"min" (apply min temperatures) "max" (apply max temperatures) "avg" (avg temperatures)}
-						} ))
+(doseq [[city temperatures] temperatures_map]
+					 (println city 
+					 			"\n\tmin\t" (apply min temperatures)
+					 			"\n\tmax\t" (apply max temperatures)
+					 			"\n\tavg\t" (avg temperatures)))
+
+
 
